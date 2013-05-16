@@ -1,0 +1,35 @@
+<%= render "navbar" %>
+
+<div class="well well-large">
+  <h3>Share your thoughts ;)</h3>
+</div>
+
+<div class="communication">
+  <h4>Add a comment:</h4>
+  <%= form_for([@employee, @employee.comments.build]) do |f| %>
+    <div class="hidden">
+      <%= f.label :commenter %><br />
+      <%= f.text_field :commenter, :value => @employee.name %>
+    </div>
+    <div class="field">
+      <%= f.text_area :body, :class => "text_area" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Share", :class => "btn btn-inverse" %>
+    </div>
+  <% end %>
+
+  <% if @employee.comments.present? %>
+    <h3>Chat history</h3>
+    <% @employee.comments.each do |comment| %>
+      <div class="well well-small">
+        <strong><%= comment.commenter %> said at <%= comment.created_at.strftime("%d %B %Y") unless comment.created_at.nil? %>:</strong> <%= simple_format comment.body %>
+        <% if current_user.admin == true %>
+           <%= link_to 'Delete', [comment.employee, comment],
+               :confirm => 'Are you sure bro?',
+               :method => :delete %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

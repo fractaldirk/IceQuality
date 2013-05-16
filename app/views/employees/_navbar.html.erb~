@@ -1,0 +1,20 @@
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#"></a>
+      <%= link_to @employee.name, employee_path(@employee), :class => "brand" %>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="divider-vertical"><%= link_to "Instructions", instructions_employee_path(@employee) %></li>
+          <li class="divider-vertical"><%= link_to "Communication" %></li>
+          <li class="divider-vertical"><%= link_to "Contact details" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
