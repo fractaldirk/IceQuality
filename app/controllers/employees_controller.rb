@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    if current_user.level == 99
+    if current_user.admin == true
       redirect_to manage_path
     else
       redirect_to "/employees/#{current_user.level.to_s}"

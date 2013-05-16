@@ -111,13 +111,4 @@ class EmployeesController < ApplicationController
       format.json { render json: @employees }
     end
   end
-
-private
-  def admin
-    if current_user.admin?
-      true
-    else
-      false
-    end
-  end
 end
