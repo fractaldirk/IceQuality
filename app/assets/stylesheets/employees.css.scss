@@ -33,3 +33,22 @@
 .well-small {
   background-color: #99CCCC;
 }
+
+.downloadpdf {
+  position: fixed;
+  top: 100px;
+  right: 42px;
+}
+
+.inlinepdf {
+  position: relative;
+  left: 25px;
+  width: 100%;
+}
+
+.contact {
+  position: relative;
+  top: 10px;
+  left: 25px;
+  width: 70%;
+}

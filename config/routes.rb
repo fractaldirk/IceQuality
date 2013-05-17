@@ -7,6 +7,8 @@ IceWork::Application.routes.draw do
     member do
       get "instructions"
       get "communication"
+      get "contact"
+      get "pdf"
     end
   end
 

@@ -8,4 +8,13 @@
   <% @employee.descriptions.each do |yo| %>
     <%= simple_format yo.job_description %>
   <% end %>
+  <hr />
+</div>
+
+<div class="inlinepdf">
+  <iframe src="https://docs.google.com/file/d/0B0BpUvsx0JBGdFdSVWlyY2hESm8/edit?usp=sharing" style="width:100%; height:900px;" frameborder="0"></iframe>
+</div>
+
+<div class="downloadpdf">
+  <%= link_to 'Download Instructions', pdf_employee_path, :class => 'btn btn-inverse' %>
 </div>

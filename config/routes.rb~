@@ -6,6 +6,8 @@ IceWork::Application.routes.draw do
     resources :comments
     member do
       get "instructions"
+      get "communication"
+      get "pdf"
     end
   end
 
