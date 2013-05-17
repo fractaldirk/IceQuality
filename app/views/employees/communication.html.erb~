@@ -9,7 +9,7 @@
   <%= form_for([@employee, @employee.comments.build]) do |f| %>
     <div class="hidden">
       <%= f.label :commenter %><br />
-      <%= f.text_field :commenter, :value => @employee.name %>
+      <%= f.text_field :commenter, :value => pizza_name %>
     </div>
     <div class="field">
       <%= f.text_area :body, :class => "text_area" %>
@@ -24,7 +24,7 @@
     <% @employee.comments.each do |comment| %>
       <div class="well well-small">
         <strong><%= comment.commenter %> said at <%= comment.created_at.strftime("%d %B %Y") unless comment.created_at.nil? %>:</strong> <%= simple_format comment.body %>
-        <% if current_user.indicator == 99 %>
+        <% if current_user.admin == true %>
            <%= link_to 'Delete', [comment.employee, comment],
                :confirm => 'Are you sure bro?',
                :method => :delete %>

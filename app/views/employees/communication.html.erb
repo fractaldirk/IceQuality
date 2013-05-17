@@ -9,7 +9,7 @@
   <%= form_for([@employee, @employee.comments.build]) do |f| %>
     <div class="hidden">
       <%= f.label :commenter %><br />
-      <%= f.text_field :commenter, :value => @employee.name %>
+      <%= f.text_field :commenter, :value => pizza_name %>
     </div>
     <div class="field">
       <%= f.text_area :body, :class => "text_area" %>
