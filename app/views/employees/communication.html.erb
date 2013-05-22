@@ -21,7 +21,7 @@
 
   <% if @employee.comments.present? %>
     <h3>Chat history</h3>
-    <% @employee.comments.each do |comment| %>
+    <% @ordered_comments.each do |comment| %>
       <div class="well well-small">
         <strong><%= comment.commenter %> said at <%= comment.created_at.strftime("%d %B %Y") unless comment.created_at.nil? %>:</strong> <%= simple_format comment.body %>
         <% if current_user.admin == true %>

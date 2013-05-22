@@ -122,4 +122,8 @@ class EmployeesController < ApplicationController
     instructions = File.join(Rails.root, "tmp/instructions.pdf")
     send_file(instructions, :filename => "instructions.pdf", :type => "application/pdf")
   end
+
+  def contact
+    @employee = Employee.find(params[:id])
+  end
 end

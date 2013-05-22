@@ -30,6 +30,7 @@ IceWork::Application.configure do
     password: "Banned88"
   }
 
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

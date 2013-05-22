@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @employee = Employee.find(params[:employee_id])
     @comment = @employee.comments.create(params[:comment])
+    UserMailer.comment_confirmation(@employee).deliver
     redirect_to communication_employee_path(@employee)
   end
 

@@ -1,0 +1,1 @@
+A new comment has been submitted. Please check <%= employee_url(@employee, host: "work.iceflag.com") %>/

@@ -40,6 +40,7 @@ class EmployeesController < ApplicationController
 
   def communication
     @employee = Employee.find(params[:id])
+    @ordered_comments = @employee.comments.order("created_at DESC")
 
     respond_to do |format|
       format.html # show.html.erb
