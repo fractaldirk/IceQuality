@@ -16,6 +16,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1.json
   def show
     @employee = Employee.find(params[:id])
+    @latest_comments = @employee.comments.find(:all, :order => "created_at DESC", :limit => 5)
 
     unless current_user.admin == true
       unless current_user.level == @employee.id

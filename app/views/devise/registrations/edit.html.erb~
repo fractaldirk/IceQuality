@@ -20,7 +20,6 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Update", :class => 'btn btn-inverse' %></div>
-<% end %>
+  <div><%= f.submit "Update", :class => 'btn btn-inverse' %> | <%= link_to "Back", :back, :class => 'btn btn-primary' %></div>
 
-<%= link_to "Back", :back, :class => 'btn btn-primary' %>
+  <% end %>

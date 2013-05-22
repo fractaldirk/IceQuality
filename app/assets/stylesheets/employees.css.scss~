@@ -34,14 +34,20 @@
   background-color: #99CCCC;
 }
 
-.downloadpdf {
-  position: fixed;
-  top: 100px;
-  right: 42px;
+.contact {
+  position: relative;
+  top: 10px;
+  left: 25px;
+  width: 70%;
 }
 
-.inlinepdf {
+.quote {
   position: relative;
-  left: 25px;
-  width: 100%;
+  top: 40px;
+  left: -70%;
+}
+
+.middle {
+  position: relative;
+  padding: 8%;
 }

@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="#"></a>
-      <%= link_to @employee.name, employee_path(@employee), :class => "brand" %>
+      <%= link_to "Home Screen", employee_path(@employee), :class => "brand" %>
       <div class="nav-collapse">
         <ul class="nav">
           <li class="divider-vertical"><%= link_to "Instructions", instructions_employee_path(@employee) %></li>

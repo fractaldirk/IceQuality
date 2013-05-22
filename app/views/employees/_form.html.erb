@@ -1,31 +1,57 @@
-<%= form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+<div class="form">
+  <%= form_for(@employee) do |f| %>
+    <% if @employee.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-      <ul>
-      <% @employee.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="bs-docs-example">
+      <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+        <li class=""><a href="#checklist" data-toggle="tab">Checklist</a></li>
+        <li class=""><a href="#faq" data-toggle="tab">FAQ</a></li>
+        <li class=""><a href="#about" data-toggle="tab">About</a></li>
       </ul>
+
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="general">
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name %>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.text_field :email %>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="checklist">
+          <%= f.fields_for :descriptions do |fd| %>
+            <%= fd.text_area :job_description, :class => "text_areas" %>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="faq">
+          <div class="field">
+            <%= f.text_area :faq, :class => "text_areas" %>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="about">
+          <div class="field">
+            <%= f.text_area :about, :class => "text_areas" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-
-  <%= f.fields_for :descriptions do |fd| %>
-    <%= fd.text_area :job_description %>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

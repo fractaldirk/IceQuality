@@ -1,6 +1,6 @@
 @import "twitter/bootstrap/bootstrap";
 
-body { padding-top: 60px; }
+body { padding-top: 30px; }
 
 @import "twitter/bootstrap/responsive";
 
@@ -32,3 +32,26 @@ body { padding-top: 60px; }
 //
 // Example:
 // @linkColor: #ff0000;
+
+.session {
+  position: fixed;
+  top: 25px;
+  left: 100px;
+}
+
+.form {
+  position: fixed;
+  top: 92px;
+  left: 150px;
+}
+
+.text_areas {
+  width: 800px;
+  height: 400px;
+}
+
+.quotes {
+  position: relative;
+  top: 40px;
+  left: -70%;
+}

@@ -1,5 +1,5 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :name, :email, :descriptions_attributes
+  attr_accessible :name, :email, :about, :faq, :descriptions_attributes
   has_many :descriptions
   has_many :comments
   accepts_nested_attributes_for :descriptions, allow_destroy: true
