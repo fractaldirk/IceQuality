@@ -1,6 +1,9 @@
 <h1>Listing employees</h1>
 
-<%= current_user.level %>
+<hr />
+  <%= link_to 'New Employee', new_employee_path %> | <%= link_to 'Manage Milestones', milestones_path %>
+<hr />
+
 <table>
   <tr>
     <th>Name</th>
@@ -20,5 +23,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Employee', new_employee_path %>
