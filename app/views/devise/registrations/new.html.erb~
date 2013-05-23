@@ -7,7 +7,7 @@
     <div><%= f.label :email %><br />
     <%= f.email_field :email, :autofocus => true %></div>
 
-    <div><%= f.label :level %><br />
+    <div><%= f.label :level, "Assign employee" %><br />
     <%= f.collection_select(:level, Employee.all, :id, :name, :include_blank => true) %></div>
 
     <div><%= f.label :admin %><br />
