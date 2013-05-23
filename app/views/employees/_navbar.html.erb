@@ -7,7 +7,11 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="#"></a>
-      <%= link_to "Home Screen", employee_path(@employee), :class => "brand" %>
+      <% if current_user.admin == true %>
+        <%= link_to "Home Screen", milestones_path, :class => "brand" %>
+      <% else %>
+        <%= link_to "Home Screen", employee_path(@employee), :class => "brand" %>
+      <% end %>
       <div class="nav-collapse">
         <ul class="nav">
           <li class="divider-vertical"><%= link_to "FAQ", instructions_employee_path(@employee) %></li>
