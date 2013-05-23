@@ -4,6 +4,9 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
+<p>*Once accepted, your "currently earned" will be updated. So it a reflection of what you will be paid up to this moment. Not a reflection of how many you have entered. <br/>
+   We will strive to update your "accepted rate" every 48 hours.
+</p>
 
 <table class="table table-striped">
   <thead>
@@ -13,10 +16,11 @@
       <th><%= model_class.human_attribute_name(:payment) %></th>
       <th>Total done</th>
       <th>Total accepted</th>
-      <th>Currently earned</th>
+      <th>Currently earned*</th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:employee_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +42,9 @@
               <% end %>
             <% end %>
           <td><%= milestone.created_at.strftime("%d %B %Y") unless milestone.created_at.nil? %></td>
+        <td>
+          <%= link_to "update", change_milestone_path(milestone), :class => 'btn btn-mini btn-inverse' %>
+        </td>
         </tr>
       <% end %>
     <% end %>

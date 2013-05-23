@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :admin!, only: [:new, :edit, :create, :update]
+  before_filter :admin!, only: [:new, :edit, :create, :destroy]
   # GET /milestones
   # GET /milestones.json
   def index
@@ -37,6 +37,11 @@ class MilestonesController < ApplicationController
 
   # GET /milestones/1/edit
   def edit
+    @milestone = Milestone.find(params[:id])
+  end
+
+  # GET /milestones/1/change
+  def change
     @milestone = Milestone.find(params[:id])
   end
 

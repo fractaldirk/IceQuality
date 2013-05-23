@@ -1,7 +1,11 @@
 IceWork::Application.routes.draw do
-  resources :milestones
-
   devise_for :users
+
+  resources :milestones do
+    member do
+      get "change"
+    end
+  end
 
   get "manage" => "employees#manage"
   resources :employees do
