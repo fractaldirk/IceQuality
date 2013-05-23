@@ -50,8 +50,7 @@ body { padding-top: 30px; }
   height: 400px;
 }
 
-.quotes {
-  position: relative;
-  top: 40px;
-  left: -70%;
+.modal {
+    width: 1180px;
+    margin-left: -590px; /* - width/2 */
 }
