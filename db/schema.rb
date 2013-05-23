@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522214803) do
+ActiveRecord::Schema.define(:version => 20130523135231) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(:version => 20130522214803) do
     t.text     "about"
     t.text     "faq"
   end
+
+  create_table "milestones", :force => true do |t|
+    t.string   "title"
+    t.boolean  "payment"
+    t.integer  "total_entries"
+    t.integer  "accepted_entries"
+    t.decimal  "cost"
+    t.integer  "status"
+    t.integer  "entries_entered"
+    t.integer  "employee_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "milestones", ["employee_id"], :name => "index_milestones_on_employee_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

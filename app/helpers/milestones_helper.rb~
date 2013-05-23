@@ -1,0 +1,4 @@
+module MilestonesHelper
+  include ActionView::Helpers::NumberHelper
+  def currently_earned
+    a = #{milestone.cost.to_f} * #{milestone.accepted_entries.to_f}

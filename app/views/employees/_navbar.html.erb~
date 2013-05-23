@@ -10,9 +10,9 @@
       <%= link_to "Home Screen", employee_path(@employee), :class => "brand" %>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="divider-vertical"><%= link_to "Instructions", instructions_employee_path(@employee) %></li>
+          <li class="divider-vertical"><%= link_to "FAQ", instructions_employee_path(@employee) %></li>
           <li class="divider-vertical"><%= link_to "Communication", communication_employee_path(@employee) %></li>
-          <li class="divider-vertical"><%= link_to "Contact details", contact_employee_path(@employee) %></li>
+          <li class="divider-vertical"><%= link_to "About", contact_employee_path(@employee) %></li>
         </ul>
       </div>
     </div>

@@ -1,0 +1,45 @@
+<%- model_class = Milestone -%>
+
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Description</th>
+      <th><%= model_class.human_attribute_name(:payment) %></th>
+      <th>Total done</th>
+      <th>Total accepted</th>
+      <th>Currently earned</th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:employee_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% county_bounty = 0 %>
+    <% @milestones.each do |milestone| %>
+      <% if current_user.level == milestone.employee_id %>
+        <tr>
+          <% county_bounty += 1 %>
+          <td><%= county_bounty %></td>
+          <td><%= milestone.title %></td>
+          <td><%= milestone.payment %></td>
+          <td><%= milestone.percentage_done.to_i %>%</td>
+          <td><%= milestone.percentage_accepted.to_i %>%</td>
+          <td><%= milestone.currently_earned %></td>
+          <td><%= milestone.status_output %></td>
+            <% @employees.each do |e| %>
+              <% if e.id == milestone.employee_id %>
+                <td><%= e.name %></td>
+              <% end %>
+            <% end %>
+          <td><%= milestone.created_at.strftime("%d %B %Y") unless milestone.created_at.nil? %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,54 @@
+<%- model_class = Milestone -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:payment) %></th>
+      <th><%= model_class.human_attribute_name(:total_entries) %></th>
+      <th><%= model_class.human_attribute_name(:accepted_entries) %></th>
+      <th><%= model_class.human_attribute_name(:cost) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:entries_entered) %></th>
+      <th><%= model_class.human_attribute_name(:employee_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @milestones.each do |milestone| %>
+      <tr>
+        <td><%= link_to milestone.id, milestone_path(milestone) %></td>
+        <td><%= milestone.title %></td>
+        <td><%= milestone.payment %></td>
+        <td><%= milestone.total_entries %></td>
+        <td><%= milestone.accepted_entries %></td>
+        <td><%= milestone.cost %></td>
+        <td><%= milestone.status %></td>
+        <td><%= milestone.entries_entered %></td>
+          <% @employees.each do |e| %>
+            <% if e.id == milestone.employee_id %>
+              <td><%= e.name %></td>
+            <% end %>
+          <% end %>
+        <td><%= milestone.created_at.strftime("%d %B %Y") unless milestone.created_at.nil? %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_milestone_path(milestone), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      milestone_path(milestone),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_milestone_path,
+            :class => 'btn btn-primary' %>

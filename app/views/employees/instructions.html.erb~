@@ -5,8 +5,6 @@
 </div>
 
 <div class="instructions">
-  <% @employee.descriptions.each do |yo| %>
-    <%= simple_format yo.job_description %>
-  <% end %>
+  <%= simple_format @employee.faq %>
   <hr />
 </div>
